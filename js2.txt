@@ -1,0 +1,289 @@
+comparison operators
+
+== - equal to
+
+=== - equal value and equal type
+
+!= - not equal
+
+!== - not equal value or equal type
+
+> - greater than 
+
+< - less than
+
+>= - greater than or equal to
+
+<= - less than or equal to */
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Loops -
+
+for - loops through a block of code a number of times
+
+example -
+
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+
+for/in - loops through the properties of an object
+
+example -
+
+const person = {fname:"John", lname:"Doe", age:25};
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
+
+for/of - loops through the values of an iterable object
+
+example -
+
+let language = "JavaScript";
+
+let text = "";
+for (let x of language) {
+text += x;
+}
+
+while - loops through a block of code while a specified condition is true
+
+example -
+
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+
+do/while - also loops through a block of code while a specified condition is true
+
+example-
+
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+control structures-
+
+if … else - The if statement is the fundamental control statement that allows JavaScript to make decisions and execute statements conditionally.
+
+example - 
+
+var age = 20;
+      if( age > 18 ){
+         document.write("<b>Qualifies for driving</b>");
+      }
+
+switch case - to give an expression to evaluate and several different statements to execute based on the value of the expression.
+The interpreter checks each case against the value of the expression until a match is found. If nothing matches, a default condition will be used.
+
+example - 
+
+ var grade='A';
+      document.write("Entering switch block<br/>");
+      switch (grade) {
+         case 'A': document.write("Good job<br/>");
+            break;
+         case 'B': document.write("Pretty good<br/>");
+            break;
+         case 'C': document.write("Passed<br/>");
+            break;
+         case 'D': document.write("Not so good<br/>");
+            break;
+         case 'F': document.write("Failed<br/>");
+            break;
+         default:  document.write("Unknown grade<br/>")
+      }
+       document.write("Exiting switch block");
+
+do while loop - the condition check happens at the end of the loop. This means that the loop will always be executed at least once, even if the condition is false.
+
+example -
+
+var count = 0;
+      document.write("Starting Loop" + "<br/>");
+      do{
+         document.write("Current Count : " + count + "<br/>");
+         count++;
+      }while (count < 0);
+      document.write("Loop stopped!");
+
+while loop - The purpose of a while loop is to execute a statement or code block repeatedly as long as expression is true. Once expression becomes false, the loop will be exited.
+
+example - 
+
+var count = 0;
+      document.write("Starting Loop" + "<br/>");
+      while (count < 10){
+         document.write("Current Count : " + count + "<br/>");
+         count++;
+      }
+      document.write("Loop stopped!");
+
+for loop - The for loop is the most compact form of looping and includes the following three important parts −
+
+1. The loop initialization where we initialize our counter to a starting value. The initialization statement is executed before the loop begins.
+
+2. The test statement which will test if the given condition is true or not. If condition is true then code given inside the loop will be executed otherwise loop will come out.
+
+3. The iteration statement where you can increase or decrease your counter.
+
+example - 
+      var count;
+      document.write("Starting Loop" + "<br/>");
+      for(count = 0; count < 10; count++){
+         document.write("Current Count : " + count );
+         document.write("<br/>");
+      }
+      document.write("Loop stopped!");
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CallBacks
+
+callback - A callback is a function passed as an argument to another function
+
+example - 
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+ 
+values - The simple rule of passing by value is that all primitive values in JavaScript are passed by value. Simple as that
+Passing by value means that every time you assign a value to a variable, a copy of that value is created. Every single time
+
+example -
+
+let a = 10;
+let b = a;
+a = 15;
+
+console.log(a)
+console.log(b)
+
+reference - The pass by reference, however, manifests itself differently.
+When creating an object you're given a reference to that object. If 2 variables hold the same reference, then changing the object reflects in both variables.
+
+example - 
+
+let josue = { name: 'Josue', age: '23'}
+let david = josue
+
+david.name = 'David'
+
+console.log(josue)
+console.log(david)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DOM -
+
+Elements -
+Finding HTML elements by id
+
+example - const element = document.getElementById("intro");
+
+Finding HTML elements by tag name
+
+example - const element = document.getElementsByTagName("p");
+
+Finding HTML elements by class name
+
+example - const x = document.getElementsByClassName("intro");
+
+Finding HTML elements by CSS selectors
+
+example - const x = document.querySelectorAll("p.intro");
+
+Finding HTML elements by HTML object collections
+
+example - 
+const x = document.forms["frm1"];
+let text = "";
+for (let i = 0; i < x.length; i++) {
+  text += x.elements[i].value + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+
+
+Changing content - 
+
+example -
+
+<html>
+<body>
+
+<p id="p1">Hello World!</p>
+
+<script>
+document.getElementById("p1").innerHTML = "New text!";
+</script>
+
+</body>
+</html>
+
+
+Changing style - 
+
+example - 
+
+<html>
+<body>
+
+<p id="p2">Hello World!</p>
+
+<script>
+document.getElementById("p2").style.color = "blue";
+</script>
+
+</body>
+</html>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Event Listeners - 
+
+The addEventListener() method attaches an event handler to the specified element.
+
+The addEventListener() method attaches an event handler to an element without overwriting existing event handlers.
+
+You can add many event handlers to one element.
+
+You can add many event handlers of the same type to one element, i.e two "click" events.
+
+You can add event listeners to any DOM object not only HTML elements. i.e the window object.
+
+The addEventListener() method makes it easier to control how the event reacts to bubbling.
+
+When using the addEventListener() method, the JavaScript is separated from the HTML markup, for better readability and allows you to add event listeners even when you do not control the HTML markup.
+
+You can easily remove an event listener by using the removeEventListener() method.
+
+example - 
+
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+element.addEventListener("click", function(){ alert("Hello World!"); });
+
+element.addEventListener("mouseover", myFunction);
+element.addEventListener("click", mySecondFunction);
+element.addEventListener("mouseout", myThirdFunction);
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
